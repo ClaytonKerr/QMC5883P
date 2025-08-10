@@ -5,7 +5,7 @@
 #include <cmath>
 
 namespace esphome {
-namespace QMC5883P {
+namespace qmc5883p {
 
 static const char *const TAG = "QMC5883P";
 static const uint8_t QMC5883P_ADDRESS = 0x2;
@@ -147,5 +147,5 @@ i2c::ErrorCode QMC5883PComponent::read_bytes_16_le_(uint8_t a_register, uint16_t
   return err;
 }
 
-}  // namespace QMC5883P
+}  // namespace qmc5883p
 }  // namespace esphome
