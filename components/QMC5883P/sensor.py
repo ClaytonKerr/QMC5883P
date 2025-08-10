@@ -37,13 +37,13 @@ QMC5883PDatarates = {
     200: QMC5883PDatarate.QMC5883P_DATARATE_200_HZ,
 }
 
-QMC5883PRange = QMC5883P_ns.enum("QMC5883PRange")
+QMC5883PRange = qmc5883p_ns.enum("QMC5883PRange")
 QMC5883P_RANGES = {
     200: QMC5883PRange.QMC5883P_RANGE_200_UT,
     800: QMC5883PRange.QMC5883P_RANGE_800_UT,
 }
 
-QMC5883POversampling = QMC5883P_ns.enum("QMC5883POversampling")
+QMC5883POversampling = qmc5883p_ns.enum("QMC5883POversampling")
 QMC5883POversamplings = {
     512: QMC5883POversampling.QMC5883P_SAMPLING_512,
     256: QMC5883POversampling.QMC5883P_SAMPLING_256,
