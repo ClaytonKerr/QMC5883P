@@ -1,0 +1,2 @@
+# QMC5883P
+QMC5883P for ESPhome
