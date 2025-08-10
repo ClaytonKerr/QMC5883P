@@ -10,13 +10,10 @@ from esphome.const import (
     CONF_ID,
     CONF_OVERSAMPLING,
     CONF_RANGE,
-    CONF_TEMPERATURE,
     CONF_UPDATE_INTERVAL,
-    DEVICE_CLASS_TEMPERATURE,
     ICON_MAGNET,
     ICON_SCREEN_ROTATION,
     STATE_CLASS_MEASUREMENT,
-    UNIT_CELSIUS,
     UNIT_DEGREES,
     UNIT_MICROTESLA,
 )
@@ -81,12 +78,6 @@ heading_schema = sensor.sensor_schema(
     icon=ICON_SCREEN_ROTATION,
     accuracy_decimals=1,
 )
-temperature_schema = sensor.sensor_schema(
-    unit_of_measurement=UNIT_CELSIUS,
-    accuracy_decimals=1,
-    device_class=DEVICE_CLASS_TEMPERATURE,
-    state_class=STATE_CLASS_MEASUREMENT,
-)
 
 CONFIG_SCHEMA = (
     cv.Schema(
@@ -103,7 +94,6 @@ CONFIG_SCHEMA = (
             cv.Optional(CONF_FIELD_STRENGTH_Y): field_strength_schema,
             cv.Optional(CONF_FIELD_STRENGTH_Z): field_strength_schema,
             cv.Optional(CONF_HEADING): heading_schema,
-            cv.Optional(CONF_TEMPERATURE): temperature_schema,
         }
     )
     .extend(cv.polling_component_schema("60s"))
@@ -140,6 +130,3 @@ async def to_code(config):
     if CONF_HEADING in config:
         sens = await sensor.new_sensor(config[CONF_HEADING])
         cg.add(var.set_heading_sensor(sens))
-    if CONF_TEMPERATURE in config:
-        sens = await sensor.new_sensor(config[CONF_TEMPERATURE])
-        cg.add(var.set_temperature_sensor(sens))

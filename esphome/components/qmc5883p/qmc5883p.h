@@ -40,7 +40,6 @@ class QMC5883PComponent : public PollingComponent, public i2c::I2CDevice {
   void set_y_sensor(sensor::Sensor *y_sensor) { y_sensor_ = y_sensor; }
   void set_z_sensor(sensor::Sensor *z_sensor) { z_sensor_ = z_sensor; }
   void set_heading_sensor(sensor::Sensor *heading_sensor) { heading_sensor_ = heading_sensor; }
-  void set_temperature_sensor(sensor::Sensor *temperature_sensor) { temperature_sensor_ = temperature_sensor; }
 
  protected:
   QMC5883PDatarate datarate_{QMC5883P_DATARATE_10_HZ};
@@ -50,7 +49,6 @@ class QMC5883PComponent : public PollingComponent, public i2c::I2CDevice {
   sensor::Sensor *y_sensor_{nullptr};
   sensor::Sensor *z_sensor_{nullptr};
   sensor::Sensor *heading_sensor_{nullptr};
-  sensor::Sensor *temperature_sensor_{nullptr};
   enum ErrorCode {
     NONE = 0,
     COMMUNICATION_FAILED,
